@@ -1,10 +1,21 @@
 {
-  "name": "${PROJECT_NAME}",
+  "name": "server1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "axios": "^1.7.7",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "faker": "^6.6.6",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.4"
+  },
+  "proxy": "http://localhost/3000"
 }
