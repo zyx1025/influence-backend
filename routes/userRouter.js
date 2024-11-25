@@ -30,13 +30,31 @@ router.post('/login', async(req, res) => {
 });
 
 //重置密码接口
-router.put('/reset', async (req, res) => {
-    const { id, password } = req.body;
+// router.put('/reset', async (req, res) => {
+//     const { id, password } = req.body;
+//
+//     const query = 'UPDATE SystemUser SET password = ? where username = ?';
+//
+//     try {
+//         const [result] = await pool.query(query, [password, id]);
+//         if (result.affectedRows > 0) {
+//             return res.status(200).json({ code: 200, message: '修改密码成功' });
+//         } else {
+//             return res.status(401).json({ code: 401, message: '该用户名不存在' });
+//         }
+//     } catch (error) {
+//         console.error('数据库查询错误:', error);
+//         return res.status(500).json({ code: 500, message: '数据库查询错误' });
+//     }
+// });
 
-    const query = 'UPDATE SystemUser SET password = ? where username = ?';
+router.put('/reset', async (req, res) => {
+    const { password } = req.body;
+
+    const query = 'UPDATE SystemUser SET password = ?';
 
     try {
-        const [result] = await pool.query(query, [password, id]);
+        const [result] = await pool.query(query, [password]);
         if (result.affectedRows > 0) {
             return res.status(200).json({ code: 200, message: '修改密码成功' });
         } else {

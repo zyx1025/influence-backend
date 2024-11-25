@@ -12,12 +12,13 @@ const {judgeAchievements,judgeInfluenceAchievements} = require('../utils/judgeAc
 // 更新影响力
 router.post('/influence', async (req, res) => {
     const { area } = req.body;
-
+    
     if (!area) {
         return res.status(400).json({ error: 'area is required' });
     }
 
     const { ip, port } = groupServiceConfig;
+    console.log(ip,port,area);
     try {
         const response = await axios.post(`http://${ip}:${port}/api/v1/userData`, { area });
         const { users } = response.data.data;

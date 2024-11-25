@@ -1,4 +1,3 @@
-const { generateUserData } = require('../utils/generateData');
 const express = require('express');
 const router = express.Router();
 const authToken = require("../utils/authenticate")
